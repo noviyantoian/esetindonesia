@@ -37,7 +37,7 @@ if (isset($_POST['kirim'])) {
   $secret_token = "2143650264:AAE4NWW2kV-sUQpn9MtCRKe7xTFVeP0B18U";
   $telegram_id = "@esetindonesiaBot";
 
-  $sendMessage($telegram_id, $keterangan, $secret_token);
+  sendMessage($telegram_id, $keterangan, $secret_token);
 
   header('location:/success.html');
 }
