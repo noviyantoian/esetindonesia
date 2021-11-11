@@ -12,7 +12,7 @@ if (isset($_POST['kirim'])) {
 
   function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
-    $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?=parse_mode=markdown&chat_id=" . $telegram_id;
+    $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?=parse_mode=html&chat_id=" . $telegram_id;
     $text = "Nama Lengkap: <b>" . $nama . "</b></br>";
     $text = "Perusahaan: <b>" . $nperusahaan . "</b></br>";
     $text = "email: <b>" . $email . "</b></br>";
