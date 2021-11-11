@@ -13,15 +13,16 @@ if (isset($_POST['kirim'])) {
   function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
     $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?=parse_mode=html&chat_id=" . $telegram_id;
-    $text = "Nama Lengkap: <b>" . $nama . "</b></br>";
-    $text = "Perusahaan: <b>" . $nperusahaan . "</b></br>";
-    $text = "email: <b>" . $email . "</b></br>";
-    $text = "Telp/WhatsApp: <b>" . $wa . "</b></br>";
-    $text = "Keterangan Lain: <b><i>" . $keterangan . "</i></b></br>";
+    $text = "Nama Lengkap: <b>" . $nama . "</b></br>
+             Perusahaan: <b>" . $perusahaan . "</b></br>
+             email: <b>" . $email . "</b></br>
+             Telp/WhatsApp: <b>" . $wa . "</b></br>
+             Jumlah PC/Laptop: <b>" . $jumlahpc . "</b></br>
+             Keterangan Lain: <b><i>" . $keterangan . "</i></b></br>";
 
     // $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
 
-    $url = $url . "&text=" . urlencode($text);
+    $url = $url . "&text=" . $text;
     $ch = curl_init();
 
     $optArray = array(
