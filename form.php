@@ -6,6 +6,22 @@ if ($con->connect_errno) {
   exit();
 }
 
+function sendMessage($telegram_id, $message, $secret_token)
+{
+  $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?=parse_mode=markdown&chat_id" . $telegram_id;
+  $url = $url . "&text" . urlencode($message);
+  $ch = curl_init();
+
+  $optArray = array(
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+  );
+
+  curl_setopt_array($ch, $optArray);
+  $result = curl_exec($ch);
+  curl_close($ch);
+}
+
 if (isset($_POST['kirim'])) {
 
   $namaLengkap = trim(htmlentities($_POST['namaLengkap']));
@@ -15,7 +31,13 @@ if (isset($_POST['kirim'])) {
   $keterangan = trim(htmlentities($_POST['keterangan']));
   $jumlahpc = trim(htmlentities($_POST['jumlahpc']));
 
+
   $data = mysqli_query($con, "INSERT INTO penawaran (namaLengkap,perusahaan,email,wa,jumlahPc,keterangan) VALUES ('$namaLengkap','$perusahaan','$email','$wa','$jumlahpc','$keterangan')");
+
+  $secret_token = "2143650264:AAE4NWW2kV-sUQpn9MtCRKe7xTFVeP0B18U";
+  $telegram_id = "@esetindonesiaBot";
+
+  $sendMessage($telegram_id, $keterangan, $secret_token);
 
   header('location:/success.html');
 }
