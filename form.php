@@ -10,10 +10,10 @@ if ($con->connect_errno) {
 
 if (isset($_POST['kirim'])) {
 
-  function sendMessage($telegram_id, $message, $secret_token)
+  function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
     $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?=parse_mode=markdown&chat_id=" . $telegram_id;
-    $url = $url . "&text=" . urlencode($message);
+    $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
     $ch = curl_init();
 
     $optArray = array(
@@ -40,7 +40,7 @@ if (isset($_POST['kirim'])) {
   $telegram_id = ["470830212", "934672013"];
 
   foreach ($telegram_id as $id_tele) {
-    sendMessage($id_tele, $keterangan, $secret_token);
+    sendMessage($id_tele, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token);
   }
   header('location:/success.html');
 }
