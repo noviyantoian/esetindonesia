@@ -13,12 +13,12 @@ if (isset($_POST['kirim'])) {
   function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
     $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id;
-    $text = "Nama Lengkap: <b>" . $nama . "</b></br>
-             Perusahaan: <b>" . $perusahaan . "</b></br>
-             email: <b>" . $email . "</b></br>
-             Telp/WhatsApp: <b>" . $wa . "</b></br>
-             Jumlah PC/Laptop: <b>" . $jumlahpc . "</b></br>
-             Keterangan Lain: <b><i>" . $keterangan . "</i></b></br>";
+    $text = 'Nama Lengkap: <b>' . $nama . '</b></br>
+             Perusahaan: <b>' . $perusahaan . '</b></br>
+             email: <b>' . $email . '</b></br>
+             Telp/WhatsApp: <b>' . $wa . '</b></br>
+             Jumlah PC/Laptop: <b>' . $jumlahpc . '</b></br>
+             Keterangan Lain: <b><i>' . $keterangan . '</i></b></br>';
 
     // $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
 
