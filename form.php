@@ -13,9 +13,9 @@ if (isset($_POST['kirim'])) {
   $email = trim(htmlentities($_POST['email']));
   $wa = trim(htmlentities($_POST['wa']));
   $keterangan = trim(htmlentities($_POST['keterangan']));
-  $jumlahpc = trim(htmlentities($_POST['jumlahPc']));
+  $jumlahpc = trim(htmlentities($_POST['jumlahpc']));
 
-  $data = mysqli_query($con, "INSERT INTO penawaran (namaLengkap,perusahaan,email,wa,jumlahPc,keterangan) VALUES ('$namaLengkap','$perusahaan','$email','$wa','$jumlahPc','$keterangan')");
+  $data = mysqli_query($con, "INSERT INTO penawaran (namaLengkap,perusahaan,email,wa,jumlahPc,keterangan) VALUES ('$namaLengkap','$perusahaan','$email','$wa','$jumlahpc','$keterangan')");
 
   header('location:/success.html');
 }
