@@ -35,7 +35,7 @@ if (isset($_POST['kirim'])) {
   $data = mysqli_query($con, "INSERT INTO penawaran (namaLengkap,perusahaan,email,wa,jumlahPc,keterangan) VALUES ('$namaLengkap','$perusahaan','$email','$wa','$jumlahpc','$keterangan')");
 
   $secret_token = "2143650264:AAE4NWW2kV-sUQpn9MtCRKe7xTFVeP0B18U";
-  $telegram_id = "@esetindonesiaBot";
+  $telegram_id = "470830212";
 
   sendMessage($telegram_id, $keterangan, $secret_token);
 
