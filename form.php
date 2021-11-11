@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Jakarta");
 $con = mysqli_connect("localhost", "akum6355_eset", "MZ4MfCiCBU3D5MA", "akum6355_esetindonesia");
 
 if ($con->connect_errno) {
@@ -13,16 +14,18 @@ if (isset($_POST['kirim'])) {
   function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
     $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id . "&parse_mode=markdown";
-    // $text = 'Nama Lengkap: <b>' . $nama . '</b></br>
-    //          Perusahaan: <b>' . $perusahaan . '</b></br>
-    //          email: <b>' . $email . '</b></br>
-    //          Telp/WhatsApp: <b>' . $wa . '</b></br>
-    //          Jumlah PC/Laptop: <b>' . $jumlahpc . '</b></br>
-    //          Keterangan Lain: <b><i>' . $keterangan . '</i></b></br>';
+    $text = 'Tanggal Masuk: ' . date("d/m/Y") . '\n  
+             Jam: ' . date("h:i") . 'WIB\n
+             Nama Lengkap: **' . $nama . '\n
+             Perusahaan: **' . $perusahaan . '**\n
+             email: **' . $email . '**\n
+             Telp/WhatsApp: **' . $wa . '**\n
+             Jumlah PC/Laptop: **' . $jumlahpc . '**\n
+             Keterangan Lain: **__' . $keterangan . '__**';
 
-    $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
+    // $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
 
-    // $url = $url . "&text=" . $text . "&parse_mode=html";
+    $url = $url . "&text=" . urlencode($text);
     $ch = curl_init();
 
     $optArray = array(
