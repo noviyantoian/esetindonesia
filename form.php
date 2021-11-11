@@ -12,7 +12,7 @@ if (isset($_POST['kirim'])) {
 
   function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
-    $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?=parse_mode=html&chat_id=" . $telegram_id;
+    $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id;
     $text = "Nama Lengkap: <b>" . $nama . "</b></br>
              Perusahaan: <b>" . $perusahaan . "</b></br>
              email: <b>" . $email . "</b></br>
@@ -22,7 +22,7 @@ if (isset($_POST['kirim'])) {
 
     // $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
 
-    $url = $url . "&text=" . $text;
+    $url = $url . "&text=" . $text . "&parse_mode=html";
     $ch = curl_init();
 
     $optArray = array(
