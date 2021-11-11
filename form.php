@@ -19,7 +19,7 @@ if (isset($_POST['kirim'])) {
     Jam: *" . date('h:i') . "WIB* \n  
     Nama Lengkap: *" . $nama . "* \n  
     Perusahaan/Intansi: *" . $perusahaan . "* \n
-    Email: **" . $email . "* \n 
+    Email: *" . $email . "* \n 
     Telp/WhatsApp: *" . $wa . "* \n  
     Jumlah PC/Laptop: *" . $jumlahpc . "*
     Keterangan Lain: _" . $keterangan . "_";
