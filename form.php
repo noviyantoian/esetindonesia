@@ -14,7 +14,7 @@ if (isset($_POST['kirim'])) {
   function sendMessage($telegram_id, $nama, $perusahaan, $email, $wa, $jumlahpc, $keterangan, $secret_token)
   {
     $url =  "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id . "&parse_mode=markdown";
-    $text = "Tanggal Masuk: *" . date('d/m/Y') . "* \n Jam: *" . date('h:i') . "WIB* \n Nama Lengkap: *" . $nama . "* \n Perusahaan/Intansi: *" . $perusahaan . "* \n Email: *" . $email . "* \n Telp/WhatsApp: *" . $wa . "* \n Jumlah PC/Laptop: *" . $jumlahpc . "* \n Keterangan Lain: _" . $keterangan . "_";
+    $text = "Tanggal Masuk: *" . date('d/m/Y') . "* \nJam: *" . date('h:i') . "WIB* \nNama Lengkap: *" . $nama . "* \nPerusahaan/Instansi: *" . $perusahaan . "* \nEmail: *" . $email . "* \nTelp/WhatsApp: *" . $wa . "* \nJumlah PC/Laptop: *" . $jumlahpc . "* \nKeterangan Lain: _" . $keterangan . "_";
 
     // $url = $url . "&text=" . urlencode("Nama Lengkap: " . $nama . "\n Perusahaan/Instansi: " . $perusahaan . "\n Email: " . $email . "\n Telp/WhatsApp: " . $wa . "\n Jumlah PC/Laptop: " . $jumlahpc . "\n Keterangan: " . $keterangan);
 
