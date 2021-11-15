@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/akum6355/public_html/esetindonesia.com/
+    - /bin/cp -R * $DEPLOYPATH
