@@ -1,7 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/akum6355/public_html/esetindonesia.com/
-    - /bin/cp -R wp-content $DEPLOYPATH
-    - /bin/cp -R bisnis $DEPLOYPATH
-    - /bin/cp -R index.html $DEPLOYPATH
